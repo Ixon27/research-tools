@@ -1,0 +1,37 @@
+{
+  "recipient_email": "you@example.com",
+  "sender_email": "you@example.com",
+  "sender_name": "이번 주 논문",
+  "researcher_context": "미생물학 대학원생. 관심 분야: (1) 장내 마이크로바이옴 (2) 환경 오염물질 × 마이크로바이옴 (3) 계산·AI 생명과학. — 이 문장을 Claude가 논문 요약 시 '왜 나에게 중요한가'를 쓰는 데 참고한다. 본인 상황으로 바꿔 쓴다.",
+  "claude_model": "claude-haiku-4-5-20251001",
+  "highly_cited_years": 2,
+  "n_highly_cited": 2,
+  "n_newest": 1,
+  "quality": {
+    "candidate_pool": 100,
+    "exclude_retracted": true,
+    "exclude_preprint": true,
+    "exclude_future_dated": true,
+    "one_paper_per_journal": true,
+    "min_citations_for_fwci": 5,
+    "prescreen_newest": true
+  },
+  "categories": [
+    {
+      "name": "장내 마이크로바이옴",
+      "query": "(TITLE:\"gut microbiome\" OR TITLE:\"gut microbiota\" OR TITLE:\"intestinal microbiota\" OR TITLE:\"gut-brain\" OR TITLE:\"fecal microbiota\") AND (HAS_ABSTRACT:Y) AND (SRC:MED)"
+    },
+    {
+      "name": "마이크로바이옴 일반",
+      "query": "(TITLE:microbiome OR TITLE:microbiota) AND (TITLE_ABS:skin OR TITLE_ABS:oral OR TITLE_ABS:soil OR TITLE_ABS:marine OR TITLE_ABS:plant OR TITLE_ABS:environmental OR TITLE_ABS:\"16S\" OR TITLE_ABS:metagenomic) NOT (TITLE:\"gut microbiota\" OR TITLE:\"gut microbiome\") AND (HAS_ABSTRACT:Y) AND (SRC:MED)"
+    },
+    {
+      "name": "환경독성 × 마이크로바이옴",
+      "query": "(TITLE_ABS:microplastic* OR TITLE_ABS:nanoplastic* OR TITLE_ABS:\"heavy metal\" OR TITLE_ABS:\"heavy metals\" OR TITLE_ABS:cadmium OR TITLE_ABS:arsenic OR TITLE_ABS:pesticide OR TITLE_ABS:pesticides OR TITLE_ABS:\"endocrine disrupt*\" OR TITLE_ABS:bisphenol OR TITLE_ABS:phthalate* OR TITLE_ABS:PFAS OR TITLE_ABS:benzotriazole OR TITLE_ABS:\"emerging contaminant*\" OR TITLE_ABS:\"environmental pollutant*\" OR TITLE_ABS:xenobiotic*) AND (TITLE_ABS:microbiome OR TITLE_ABS:microbiota OR TITLE_ABS:\"gut bacteria\" OR TITLE_ABS:dysbiosis) AND (HAS_ABSTRACT:Y) AND (SRC:MED)"
+    },
+    {
+      "name": "계산·AI 생명과학",
+      "query": "(TITLE:\"deep learning\" OR TITLE:\"machine learning\" OR TITLE:\"artificial intelligence\" OR TITLE:\"foundation model\" OR TITLE:\"language model\" OR TITLE:\"neural network\" OR TITLE:bioinformatic* OR TITLE:\"computational biology\" OR TITLE:metagenomic* OR TITLE:\"single-cell\" OR TITLE:genomic* OR TITLE:pipeline OR TITLE:algorithm) AND (TITLE_ABS:genom* OR TITLE_ABS:protein OR TITLE_ABS:microbi* OR TITLE_ABS:metagenom* OR TITLE_ABS:sequencing OR TITLE_ABS:transcriptom* OR TITLE_ABS:\"gene expression\" OR TITLE_ABS:bacteri*) NOT (TITLE:radiolog* OR TITLE:\"medical imaging\" OR TITLE:diagnos* OR TITLE:clinician* OR TITLE:physician* OR TITLE:dental OR TITLE:dentistry OR TITLE:\"electronic health record\" OR TITLE:chatbot OR TITLE:education OR TITLE:nursing OR TITLE:radiograph* OR TITLE:ethic*) AND (HAS_ABSTRACT:Y) AND (SRC:MED)"
+    }
+  ]
+}

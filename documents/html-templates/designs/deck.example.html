@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>deck 디자인 — 마크업 예시</title>
+<style>
+/* 실제 산출물에서는 여기에
+   ① designs/deck-fonts.css (Pretendard base64)
+   ② designs/deck.css
+   를 순서대로 통째로 인라인한다. 이 예시는 CSS를 link 로 걸어 두었을 뿐이다. */
+</style>
+<link rel="stylesheet" href="deck-fonts.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+
+<!-- ============================================================
+     1 — 표지 : .slide 안에 .slide-inner 하나. 이 구조는 반드시 지킨다.
+     data-topic 은 왼쪽 아래에 뜨는 현재 위치 라벨.
+     ============================================================ -->
+<section class="slide" data-topic="">
+  <div class="slide-inner">
+    <h1>발표 제목<br>— 부제</h1>
+    <p class="subtitle">한두 문장으로 무엇을 다루는지.</p>
+    <div class="byline">
+      <span>발표 성격</span><span>N 슬라이드</span><span>~25분</span><span>← → 키로 이동</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2 — 일반 슬라이드 : eyebrow → h2 → 본문 → .refs
+     제목(h2)은 «-습니다」 서술형이 아니라 명사형으로 끝낸다.
+     ============================================================ -->
+<section class="slide t1" data-topic="주제 1 · 물질명">
+  <div class="slide-inner">
+    <div class="eyebrow">작은 머리말</div>
+    <h2>명사형 제목 — 서술형 금지</h2>
+
+    <div class="row2">
+      <div>
+        <ul class="fact-list">
+          <li class="fact"><span class="fact-label">항목 이름</span><span class="fact-val hi">강조 수치</span></li>
+          <li class="fact"><span class="fact-label">항목 이름</span><span class="fact-val">보통 수치</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="card hi">
+          <h3>카드 제목</h3>
+          <p>카드 본문. <span class="tag warn">주의</span>주의는 노란 태그, <span class="tag key">핵심</span>핵심은 파란 태그.</p>
+        </div>
+      </div>
+    </div>
+
+    <dl class="terms two">
+      <dt>어려운 말</dt><dd>한 줄로 푼 설명. 처음 쓰는 용어는 반드시 여기 넣는다</dd>
+      <dt>또 다른 말</dt><dd>두 열로 놓고 싶으면 terms 에 two 를 붙인다</dd>
+    </dl>
+
+    <p class="note">보조 설명은 note. 위에 얇은 구분선이 생긴다.</p>
+
+    <div class="refs">저자 연도, 저널 권:쪽<br>저자 연도, 저널 권:쪽 (2차 인용)</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 — 표 · 상태 pill
+     ============================================================ -->
+<section class="slide t2" data-topic="주제 2 · 물질명">
+  <div class="slide-inner">
+    <div class="eyebrow">비교</div>
+    <h2>표로 놓는 슬라이드</h2>
+    <table>
+      <thead><tr><th style="width:14%">군</th><th style="width:24%">처리</th><th>역할</th></tr></thead>
+      <tbody>
+        <tr><td class="k">G1</td><td class="n">0</td><td>기준선</td></tr>
+        <tr><td class="k">G2</td><td class="n">20 µg/L</td>
+            <td>설명 본문<br><span class="dim">흐린 부연은 dim</span></td></tr>
+        <tr><td class="k">상태</td><td colspan="2">
+            <span class="pill ok">좋음</span>
+            <span class="pill warn">주의</span>
+            <span class="pill dead">막힘</span></td></tr>
+      </tbody>
+    </table>
+    <div class="refs">근거 한 줄</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 — 그림 : 인라인 SVG 만 쓴다 (mermaid·CDN 금지)
+     viewBox + width:100% 로 반응형. 글자는 <text> 로 직접.
+     ============================================================ -->
+<section class="slide t1" data-topic="주제 1 · 물질명">
+  <div class="slide-inner">
+    <div class="eyebrow">기전</div>
+    <h2>그림이 들어가는 슬라이드</h2>
+    <div class="fig">
+      <svg viewBox="0 0 880 120" role="img">
+        <title>스크린리더용 설명</title>
+        <rect x="0" y="20" width="240" height="56" rx="8" fill="#e6e9f0"/>
+        <rect x="320" y="20" width="240" height="56" rx="8" fill="rgba(54,185,204,.13)" stroke="#36b9cc" stroke-width="1.5"/>
+        <rect x="640" y="20" width="240" height="56" rx="8" fill="#e6e9f0"/>
+        <g font-family="Pretendard, sans-serif" font-size="14" fill="#33353f" text-anchor="middle">
+          <text x="120" y="53">첫 단계</text>
+          <text x="440" y="53">가운데 단계</text>
+          <text x="760" y="53">마지막</text>
+        </g>
+        <g stroke="#8b8fa3" stroke-width="1.2">
+          <line x1="248" y1="48" x2="312" y2="48"/><line x1="568" y1="48" x2="632" y2="48"/>
+        </g>
+      </svg>
+      <div class="fig-cap">그림 설명. 무엇을 보라는 것인지 한 줄로.</div>
+    </div>
+    <div class="refs">근거 한 줄</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 — 반전 슬라이드 : 주제 구분·결정 장에만 (.invert)
+     ============================================================ -->
+<section class="slide invert divider t3" data-topic="마무리">
+  <div class="slide-inner">
+    <div class="kicker">주제 03</div>
+    <h1>구분 슬라이드</h1>
+    <p class="subtitle">이 주제에서 무엇을 묻는지 한두 문장.</p>
+    <div class="rule"></div>
+  </div>
+</section>
+
+<section class="slide invert" data-topic="마무리">
+  <div class="slide-inner">
+    <div class="eyebrow">다음 단계</div>
+    <h2>결정이 필요한 지점</h2>
+    <div class="decision-card">
+      <p class="decision-q">물어야 할 것을 한 문장으로.</p>
+      <p>왜 그것이 갈림길인지.</p>
+    </div>
+    <div class="chips">
+      <span class="chip lean">A — 기울어 있는 쪽</span>
+      <span class="chip">B — 다른 쪽</span>
+    </div>
+  </div>
+</section>
+
+<div id="topicLabel"></div>
+<div id="counter"></div>
+
+<script>
+(function () {
+  var slides  = Array.from(document.querySelectorAll('.slide'));
+  var counter = document.getElementById('counter');
+  var label   = document.getElementById('topicLabel');
+  var current = 0;
+
+  function go(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    slides[current].scrollIntoView({ behavior: 'smooth' });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(current + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); go(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); go(0); }
+    if (e.key === 'End')  { e.preventDefault(); go(slides.length - 1); }
+  });
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      current = slides.indexOf(en.target);
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+      label.textContent   = en.target.dataset.topic || '';
+      document.body.classList.toggle('on-dark', en.target.classList.contains('invert'));
+    });
+  }, { threshold: 0.6 });
+
+  slides.forEach(function (s) { obs.observe(s); });
+  counter.textContent = '1 / ' + slides.length;
+
+  /* 화면 높이에 맞춰 내용을 축소한다 — 어떤 해상도·창 크기에서도 잘리지 않게.
+     축소는 마지막 수단이므로 0.72 아래로는 내려가지 않는다(그 이하면 내용을 줄여야 한다). */
+  function fit() {
+    slides.forEach(function (s) {
+      var inner = s.querySelector('.slide-inner');
+      if (!inner) return;
+      inner.style.transform = 'none';
+      var cs = getComputedStyle(s);
+      var avail = s.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      var need  = inner.scrollHeight;
+      if (need > avail) {
+        var k = Math.max(0.78, avail / need);
+        inner.style.transformOrigin = 'center center';
+        inner.style.transform = 'scale(' + k + ')';
+        inner.dataset.fit = k.toFixed(3);
+      } else {
+        delete inner.dataset.fit;
+      }
+    });
+  }
+  fit();
+  window.addEventListener('load', fit);
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# 개인 설정·비밀값 — 예시 파일(*.example.*)만 커밋한다
+secrets.env
+*.env
+!*.example.env
+literature/paper-digest/config.json
+literature/paper-digest/history.json
+literature/paper-digest/last_digest.json
+logs/
+out/
